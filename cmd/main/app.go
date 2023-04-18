@@ -30,7 +30,7 @@ func main() {
 
 	postgreSQLClient, err := postgresql.NewClient(context.TODO(), 3, cfg.Storage)
 	if err != nil {
-		logger.Fatalf("%", err)
+		logger.Fatalf("%v", err)
 	}
 
 	repository := p1.NewRepository(postgreSQLClient, logger)
