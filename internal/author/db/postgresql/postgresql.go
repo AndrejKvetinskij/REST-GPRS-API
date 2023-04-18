@@ -39,8 +39,7 @@ func (r *repository) Create(ctx context.Context, author model.Author) error {
 		var pgErr *pgconn.PgError
 		if errors.Is(err, pgErr) {
 			pgErr = err.(*pgconn.PgError)
-			x := fmt.Sprintf("SQL Error: %s, Detail: %s, Where: %s, Code: %s, SQLState: %s", pgErr.Message, pgErr.Detail, pgErr.Where, pgErr.Code, pgErr.SQLState)
-			newErr := fmt.Errorf(x)
+			newErr := fmt.Errorf(fmt.Sprintf("SQL Error: %s, Detail: %s, Where: %s, Code: %s, SQLState: %s", pgErr.Message, pgErr.Detail, pgErr.Where, pgErr.Code, pgErr.SQLState))
 			r.logger.Error(newErr)
 			return nil
 		}
