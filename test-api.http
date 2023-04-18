@@ -1,0 +1,69 @@
+
+POST http://localhost:1234/users
+Content-Type: application/json
+
+{}
+
+###
+
+PUT  http://localhost:1234/users
+Content-Type: application/json
+
+{}
+
+###
+
+PATCH  http://localhost:1234/users
+Content-Type: application/json
+
+{}
+
+###
+
+DELETE  http://localhost:1234/users/1
+Content-Type: application/json
+
+{}
+
+###
+
+GET  http://localhost:1234/users
+Content-Type: application/json
+
+{}
+
+
+###
+
+GET  http://127.0.0.1:1234/authors
+Content-Type: application/json
+
+### Get author list with sorting
+
+##########################sort_by=field&sort_order=asc/desc
+GET  http://127.0.0.1:1234/authors?sort_by=age&sort_order=desc
+Content-Type: application/json
+
+### Get author list with filter
+
+##########################?field=lt/gt/lte/gte/eq:value
+GET  http://127.0.0.1:1234/authors?age=lt:25&sort_by=age&sort_order=asc
+Content-Type: application/json
+
+###
+
+### Get author pagination 1
+
+##########################
+GET  http://127.0.0.1:1234/authors?limit=5
+Content-Type: application/json
+
+
+### Get author pagination 2
+
+##########################
+GET  http://127.0.0.1:1234/authors?sort_by=age&limit=9&ptoken=1
+Content-Type: application/json
+
+###
+
